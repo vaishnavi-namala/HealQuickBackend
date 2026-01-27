@@ -20,10 +20,7 @@ const app=express()
 const port=4000
 app.use(cors())
 app.use(express.json())
-
-const __dirname = path.resolve();
-
-app.use("/imagefile", express.static(path.join(__dirname, "imagefile")));
+app.use("/imagefile", express.static(path.join(__dirname, "/imagefile")));
 app.use('/',ContactRouting)
 app.use('/',QuickRouting)
 app.use('/',BookRouting)
