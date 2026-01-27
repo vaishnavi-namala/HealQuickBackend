@@ -1,6 +1,7 @@
 const express=require("express")
 const cors=require("cors")
 require("./Dbconfig/Dbconfig")
+const path=require("path")
 
 
 
@@ -20,7 +21,9 @@ const port=4000
 app.use(cors())
 app.use(express.json())
 
-app.use("/imagefile", express.static(__dirname+"/imagefile"))
+const __dirname = path.resolve();
+
+app.use("/imagefile", express.static(path.join(__dirname, "imagefile")));
 app.use('/',ContactRouting)
 app.use('/',QuickRouting)
 app.use('/',BookRouting)
